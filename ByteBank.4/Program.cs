@@ -10,21 +10,56 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
+            CarregarContas();
+
+            Console.WriteLine("Execução finalizada. Tecle enter para sair");
+            Console.ReadLine();
+        }
+
+        private static void CarregarContas()
+        {
+            using (LeitorDeArquivo leitor = new LeitorDeArquivo("teste.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
+
+
+
+            // ---------------------------------------------
+
+            //LeitorDeArquivo leitor = null;
+            //try
+            //{
+            //    leitor = new LeitorDeArquivo("contasl.txt");
+
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Executando o finally");
+            //    if(leitor != null)
+            //    {
+            //        leitor.Fechar();
+            //    }
+            //}
+        }
+
+        private static void TestarInnerException()
+        {
             try
             {
                 ContaCorrente conta = new ContaCorrente(456, 321);
                 ContaCorrente conta2 = new ContaCorrente(897, 3541521);
 
                 conta.Transferir(500, conta2);
-
-                Console.WriteLine($"Saldo atual: {conta.Saldo}");
-
-                conta.Sacar(200);
+                //conta.Sacar(200);
             }
-            catch (SaldoInsuficienteException ex)
+            catch (OperacaoFinanceiraException ex)
             {
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Exceção de saldo insuficiente");
+                Console.WriteLine(ex.StackTrace);
             }
             catch (ArgumentException ex)
             {
@@ -35,12 +70,13 @@ namespace ByteBank
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            
-            //Metodo();
+                Console.WriteLine(ex.StackTrace);
 
-            Console.WriteLine("Execução finalizada. Tecle enter para sair");
-            Console.ReadLine();
+                Console.WriteLine();
+                Console.WriteLine("Exceção do InnerException");
+                Console.WriteLine(ex.InnerException.Message);
+                Console.WriteLine(ex.InnerException.StackTrace);
+            }
         }
 
         private static void Metodo()
@@ -64,7 +100,6 @@ namespace ByteBank
             {
                 Console.WriteLine("Exceção com numero=" + numero + " e divisor=" + divisor);
                 throw;
-                Console.WriteLine("Código depois do throw");
             }
         }
 
