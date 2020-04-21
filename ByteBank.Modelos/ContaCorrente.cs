@@ -69,7 +69,7 @@ namespace ByteBank.Modelos
                 ContadorSaquesNaoPermitidos++;
                 throw new SaldoInsuficienteException(Saldo, valor);
             }
-
+            
             _saldo -= valor;
         }
 
