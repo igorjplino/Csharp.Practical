@@ -8,9 +8,20 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            var estagiario = new Estagiario(500, "32165498700");
-            var funcionario = new Desenvolvedor("");
+            ExtrairValorCambio();
 
+            Console.ReadLine();
+        }
+
+        public static void ExtrairValorCambio()
+        {
+            string url = "www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
+
+            ExtratorDeArgumentosURL extrator = new ExtratorDeArgumentosURL(url);
+
+            Console.WriteLine(extrator.GetValor("moedaOrigem")); // real
+            Console.WriteLine(extrator.GetValor("moedaDestino")); // dolar
+            Console.WriteLine(extrator.GetValor("valor")); // 1500
         }
     }
 }
