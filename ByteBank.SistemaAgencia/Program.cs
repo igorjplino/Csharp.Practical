@@ -8,7 +8,15 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            ExtrairValorCambio();
+            var lista = new ListaDeContaCorrente(5);
+
+            lista.Adicionar(new ContaCorrente(321, 321321));
+            lista.Adicionar(new ContaCorrente(321, 321321));
+            lista.Adicionar(new ContaCorrente(321, 321321));
+            lista.Adicionar(new ContaCorrente(321, 321321));
+            lista.Adicionar(new ContaCorrente(321, 321321));
+            lista.Adicionar(new ContaCorrente(321, 321321));
+            
 
             Console.ReadLine();
         }
