@@ -8,26 +8,58 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            var lista = new ListaDeContaCorrente(5);
+            Lista<int> idades = new Lista<int>();
 
-            var conta = new ContaCorrente(000, 999999);
+            idades.AdicionarVarios(5, 10, 15, 20, 25, 30, 35);
 
-            lista.Adicionar(new ContaCorrente(321, 321321));
-            lista.Adicionar(new ContaCorrente(321, 321321));
-            lista.Adicionar(new ContaCorrente(321, 321321));
-            lista.Adicionar(new ContaCorrente(321, 321321));
-            lista.Adicionar(conta);
-            lista.Adicionar(new ContaCorrente(321, 321321));
-            lista.Adicionar(new ContaCorrente(321, 321321));
+            for (int i = 0; i < idades.Tamanho; i++)
+            {
+                Console.WriteLine($"Idade no indice {i} = {idades[i]}");
+            }
 
-            lista.EscreverListaNaTela();
+            Console.WriteLine($"Remover");
 
-            lista.Remover(conta);
-            Console.WriteLine("Após remover");
+            idades.Remover(5);
+            idades.Remover(15);
+            idades.Remover(25);
+            idades.Remover(35);
 
-            lista.EscreverListaNaTela();
+            for (int i = 0; i < idades.Tamanho; i++)
+            {
+                Console.WriteLine($"Idade no indice {i} = {idades[i]}");
+            }
+
+            Console.WriteLine(idades[4]);
 
             Console.ReadLine();
+        }
+
+        static void TestaListaDeContaCorrente()
+        {
+            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+
+            ContaCorrente contaDoGui = new ContaCorrente(11111, 1111111);
+
+            ContaCorrente[] contas = new ContaCorrente[]
+            {
+                contaDoGui,
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5679754)
+            };
+
+            lista.AdicionarVarios(contas);
+
+            lista.AdicionarVarios(
+                contaDoGui,
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5679754)
+            );
+
+            for (int i = 0; i < lista.Tamanho; i++)
+            {
+                ContaCorrente itemAtual = lista[i];
+                Console.WriteLine($"Item na posição {i} = Conta {itemAtual.Numero}/{itemAtual.Agencia}");
+            }
         }
 
         public static void ExtrairValorCambio()
