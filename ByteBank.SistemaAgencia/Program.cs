@@ -1,12 +1,35 @@
 ﻿using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
+using ByteBank.SistemaAgencia.Extensoes;
 using System;
+using System.Collections.Generic;
 
 namespace ByteBank.SistemaAgencia
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            List<int> idades = new List<int>();
+
+            idades.Add(1);
+            idades.Add(2);
+            idades.Add(3);
+            idades.Add(4);
+            idades.Add(5);
+            idades.Add(6);
+
+            idades.AdicionarVarios(7, 8, 9);
+
+            foreach (var idade in idades)
+            {
+                Console.WriteLine(idade);
+            }
+
+            Console.ReadLine();
+        }
+
+        static void TestarListaGenerica()
         {
             Lista<int> idades = new Lista<int>();
 
@@ -30,8 +53,6 @@ namespace ByteBank.SistemaAgencia
             }
 
             Console.WriteLine(idades[4]);
-
-            Console.ReadLine();
         }
 
         static void TestaListaDeContaCorrente()
