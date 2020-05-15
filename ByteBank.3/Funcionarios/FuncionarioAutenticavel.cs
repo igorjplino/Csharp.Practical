@@ -19,5 +19,10 @@ namespace ByteBank.Funcionarios
         {
             return Senha == senha;
         }
+
+        public override void MetodoVirtual()
+        {
+            base.MetodoVirtual();
+        }
     }
 }

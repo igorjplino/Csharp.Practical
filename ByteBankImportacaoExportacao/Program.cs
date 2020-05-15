@@ -1,31 +1,19 @@
-﻿using System;
+﻿using ByteBankImportacaoExportacao.Modelos;
+using System;
 using System.IO;
+using System.Text;
 
 namespace ByteBankImportacaoExportacao
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
-            var enderecoDoArquivo = "contas.txt";
 
-            var fluxoDoArquivo = new FileStream(enderecoDoArquivo, FileMode.Open);
+            UsarStreamDeEntrada();
 
-            var buffer = new byte[1024]; // 1 kb
-
-            fluxoDoArquivo.Read(buffer, 0, 1024);
-            EscreverBuffer(buffer);
-
+            Console.WriteLine("Finalizada a execução. . .");
             Console.ReadLine();
-        }
-
-        static void EscreverBuffer(byte[] buffer)
-        {
-            foreach (var meuByte in buffer)
-            {
-                Console.Write(meuByte);
-                Console.Write(" ");
-            }
         }
     }
 }
