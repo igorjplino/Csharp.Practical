@@ -37,18 +37,29 @@ namespace ByteBank.View
         private async void BtnProcessar_Click(object sender, RoutedEventArgs e)
         {
             BtnProcessar.IsEnabled = false;
-
-            _cts = new CancellationTokenSource();
+            AtualizarView(new List<string>(), TimeSpan.Zero);
 
             var contas = r_Repositorio.GetContaClientes();
+
+            var inicio = DateTime.Now;
+
+            //ProcessarContas_Thread(contas, inicio);
+            ProcessarContas_ContinueWith(contas, inicio);
+            //ProcessarContas(contas, inicio);
+        }
+
+        /// <summary>
+        /// Método utilizado na conclusão do curso
+        /// </summary>
+        /// <param name="contas"></param>
+        private async void ProcessarContas(IEnumerable<ContaCliente> contas, DateTime inicio)
+        {
+            _cts = new CancellationTokenSource();
 
             PgsProgresso.Maximum = contas.Count();
 
             LimparView();
 
-            var inicio = DateTime.Now;
-
-            BtnCancelar.IsEnabled = true;
             var progress = new Progress<String>(str =>
                 PgsProgresso.Value++);
             //var byteBankProgress = new ByteBankProgress<String>(str =>
@@ -64,7 +75,7 @@ namespace ByteBank.View
             catch (OperationCanceledException)
             {
                 TxtTempo.Text = "Operação cancelada pelo usuário";
-            } 
+            }
             finally
             {
                 BtnProcessar.IsEnabled = true;
@@ -112,5 +123,111 @@ namespace ByteBank.View
             LstResultados.ItemsSource = result;
             TxtTempo.Text = mensagem;
         }
+
+        #region Outras formas de trabalhar com thread e tasks
+
+        /// <summary>
+        /// Dividir a quantidade de contas para processa-las em Threads separadas
+        /// </summary>
+        /// <param name="contas"></param>
+        private void ProcessarContas_Thread(IEnumerable<ContaCliente> contas, DateTime inicio)
+        {
+            var resultado = new List<string>();
+
+            var contasQuantidadePorThread = contas.Count() / 4;
+
+            var contas_parte1 = contas.Take(contasQuantidadePorThread);
+            var contas_parte2 = contas.Skip(contasQuantidadePorThread).Take(contasQuantidadePorThread);
+            var contas_parte3 = contas.Skip(contasQuantidadePorThread * 2).Take(contasQuantidadePorThread);
+            var contas_parte4 = contas.Skip(contasQuantidadePorThread * 3);
+
+            #region Criando as threads
+
+            Thread thread_parte1 = new Thread(() =>
+            {
+                foreach (var conta in contas_parte3)
+                {
+                    var resultadoProcessamento = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoProcessamento);
+                }
+            });
+            Thread thread_parte2 = new Thread(() =>
+            {
+                foreach (var conta in contas_parte3)
+                {
+                    var resultadoProcessamento = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoProcessamento);
+                }
+            });
+            Thread thread_parte3 = new Thread(() =>
+            {
+                foreach (var conta in contas_parte3)
+                {
+                    var resultadoProcessamento = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoProcessamento);
+                }
+            });
+            Thread thread_parte4 = new Thread(() =>
+            {
+                foreach (var conta in contas_parte4)
+                {
+                    var resultadoProcessamento = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoProcessamento);
+                }
+            });
+
+            #endregion
+
+            thread_parte1.Start();
+            thread_parte2.Start();
+            thread_parte3.Start();
+            thread_parte4.Start();
+
+            while (thread_parte1.IsAlive || thread_parte2.IsAlive || thread_parte3.IsAlive || thread_parte4.IsAlive)
+            {
+                Thread.Sleep(250);
+            }
+
+            var fim = DateTime.Now;
+            AtualizarView(resultado, fim - inicio);
+            BtnProcessar.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Processar contas utilizando o Factory.
+        /// O Factory é gerenciado pelo TaskScheduler, que determina onde cada Task será processada
+        /// </summary>
+        /// <param name="contas"></param>
+        private void ProcessarContas_ContinueWith(IEnumerable<ContaCliente> contas, DateTime inicio)
+        {
+            var taskSchedulerUI = TaskScheduler.FromCurrentSynchronizationContext();
+
+            var resultado = new List<string>();
+            
+            var contasTarefas = contas.Select(conta =>
+            {
+                return Task.Factory.StartNew(() =>
+                {
+                    var resultadoConta = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoConta);
+                });
+            }).ToArray();
+
+            // Aguardar todas as tarefas serem concluídas antes de continuar a execução do código
+            //Task.WaitAll(contasTarefas);
+
+            Task.WhenAll(contasTarefas)
+            .ContinueWith(t =>
+            {
+                var fim = DateTime.Now;
+                AtualizarView(resultado, fim - inicio);
+            }, taskSchedulerUI)
+            .ContinueWith(t =>
+            {
+                BtnProcessar.IsEnabled = true;
+            }, taskSchedulerUI);
+        }
+
+        #endregion
     }
 }
