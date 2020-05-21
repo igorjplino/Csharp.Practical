@@ -34,7 +34,7 @@ namespace ByteBank.View
             r_Servico = new ContaClienteService();
         }
 
-        private async void BtnProcessar_Click(object sender, RoutedEventArgs e)
+        private void BtnProcessar_Click(object sender, RoutedEventArgs e)
         {
             BtnProcessar.IsEnabled = false;
             AtualizarView(new List<string>(), TimeSpan.Zero);
@@ -42,6 +42,9 @@ namespace ByteBank.View
             var contas = r_Repositorio.GetContaClientes();
 
             var inicio = DateTime.Now;
+
+            ///
+            /// Diferentes formas de processar
 
             //ProcessarContas_Thread(contas, inicio);
             ProcessarContas_ContinueWith(contas, inicio);
