@@ -10,6 +10,7 @@ namespace ListaSomenteLeitura
     class Curso
     {
         private IList<Aula> _aulas;
+        private IList<Aluno> _alunos;
 
         public Curso(string nome, string instrutor)
         {
@@ -17,6 +18,25 @@ namespace ListaSomenteLeitura
             Instrutor = instrutor;
 
             _aulas = new List<Aula>();
+            _alunos = new List<Aluno>();
+        }
+
+        /// <summary>
+        /// Matricular aluno no curso
+        /// </summary>
+        /// <param name="aluno">Aluno a ser matriculado</param>
+        /// <exception cref="ArgumentNullException">Exceção lançada quando o argumento <paramref name="aluno"/> é nulo.</exception>
+        internal void Matricular(Aluno aluno)
+        {
+            if (aluno == null)
+            {
+                throw new ArgumentNullException(nameof(aluno), "Não é permitido adicionar uma aula Nula");
+            }
+
+            ///
+            ///Como Aluno é do tipo ISet, não preciso me preocupar em checar se ele já existe
+
+            _alunos.Add(aluno);
         }
 
         /// <summary>
@@ -42,12 +62,32 @@ namespace ListaSomenteLeitura
 
         public string Nome { get; set; }
         public string Instrutor { get; set; }
+        public int TempoTotal 
+        { 
+            get
+            {
+                return Aulas.Sum(o => o.Tempo);
+            }
+        }
         public IList<Aula> Aulas 
         {
             get
             {
                 return new ReadOnlyCollection<Aula>(_aulas);
             }
+        }
+        public IList<Aluno> Alunos
+        {
+            get
+            {
+                return new ReadOnlyCollection<Aluno>(_alunos.ToList());
+            }
+        }
+
+        public override string ToString()
+        {
+            var aulas = string.Join(", ", Aulas);
+            return $"Curso: {Nome} | Tempo: {TempoTotal} | Aulas: {aulas}";
         }
     }
 }
