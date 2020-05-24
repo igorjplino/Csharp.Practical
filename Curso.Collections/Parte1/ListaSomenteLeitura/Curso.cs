@@ -10,6 +10,8 @@ namespace ListaSomenteLeitura
     class Curso
     {
         private IList<Aula> _aulas;
+
+        private IDictionary<int, Aluno> _alunosDict;
         private IList<Aluno> _alunos;
 
         public Curso(string nome, string instrutor)
@@ -19,6 +21,31 @@ namespace ListaSomenteLeitura
 
             _aulas = new List<Aula>();
             _alunos = new List<Aluno>();
+            _alunosDict = new Dictionary<int, Aluno>();
+        }
+
+        public string Nome { get; set; }
+        public string Instrutor { get; set; }
+        public int TempoTotal
+        {
+            get
+            {
+                return Aulas.Sum(o => o.Tempo);
+            }
+        }
+        public IList<Aula> Aulas
+        {
+            get
+            {
+                return new ReadOnlyCollection<Aula>(_aulas);
+            }
+        }
+        public IList<Aluno> Alunos
+        {
+            get
+            {
+                return new ReadOnlyCollection<Aluno>(_alunos.ToList());
+            }
         }
 
         /// <summary>
@@ -33,10 +60,16 @@ namespace ListaSomenteLeitura
                 throw new ArgumentNullException(nameof(aluno), "Não é permitido adicionar uma aula Nula");
             }
 
+            if (EstaMatriculado(aluno))
+            {
+                throw new ArgumentException($"Aluno '{aluno.Nome}' já está matriculado");
+            }
+
             ///
             ///Como Aluno é do tipo ISet, não preciso me preocupar em checar se ele já existe
 
             _alunos.Add(aluno);
+            _alunosDict.Add(aluno.Matricula, aluno);
         }
 
         /// <summary>
@@ -60,28 +93,19 @@ namespace ListaSomenteLeitura
             _aulas.Add(aula);
         }
 
-        public string Nome { get; set; }
-        public string Instrutor { get; set; }
-        public int TempoTotal 
-        { 
-            get
-            {
-                return Aulas.Sum(o => o.Tempo);
-            }
-        }
-        public IList<Aula> Aulas 
+        internal bool EstaMatriculado(Aluno aluno)
         {
-            get
-            {
-                return new ReadOnlyCollection<Aula>(_aulas);
-            }
+            return _alunos.Contains(aluno);
         }
-        public IList<Aluno> Alunos
+
+        internal Aluno BuscarMatriculado(int matricula)
         {
-            get
+            if (_alunosDict.TryGetValue(matricula, out Aluno aluno))
             {
-                return new ReadOnlyCollection<Aluno>(_alunos.ToList());
+                return aluno;
             }
+
+            return null;
         }
 
         public override string ToString()

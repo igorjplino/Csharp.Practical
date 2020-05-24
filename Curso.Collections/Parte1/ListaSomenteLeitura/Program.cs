@@ -11,7 +11,7 @@ namespace ListaSomenteLeitura
         static void Main(string[] args)
         {
             var csharpColecoes = new Curso("C# Colecoes", "Marcelo Oliveira");
-            
+
             var a1 = new Aluno("Vanessa Tonini", 34672);
             var a2 = new Aluno("Ana Losnak", 5617);
             var a3 = new Aluno("Rafael Nercessian", 17645);
@@ -19,6 +19,23 @@ namespace ListaSomenteLeitura
             csharpColecoes.Matricular(a1);
             csharpColecoes.Matricular(a2);
             csharpColecoes.Matricular(a3);
+
+            Console.WriteLine("Quem é o aluno com matrícula 5617?");
+            Console.WriteLine(csharpColecoes.BuscarMatriculado(5617));
+
+            Console.ReadLine();
+        }
+
+        private static void Testando_ConjuntoComObjetos()
+        {
+            var csharpColecoes = new Curso("C# Colecoes", "Marcelo Oliveira");
+
+            var a1 = new Aluno("Vanessa Tonini", 34672);
+            var a2 = new Aluno("Ana Losnak", 5617);
+            var a3 = new Aluno("Rafael Nercessian", 17645);
+
+            csharpColecoes.Matricular(a1);
+            csharpColecoes.Matricular(a2);
             csharpColecoes.Matricular(a3);
 
             foreach (var aluno in csharpColecoes.Alunos)
@@ -39,6 +56,8 @@ namespace ListaSomenteLeitura
 
             //Imprimir(curso.Aulas);
             Console.WriteLine(curso);
+
+            Console.ReadLine();
         }
 
         private static void Testando_Conjuntos()
