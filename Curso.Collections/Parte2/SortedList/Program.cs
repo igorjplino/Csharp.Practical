@@ -49,6 +49,12 @@ namespace SortedList
             sorted.Add("RN", new Aluno("Rafael", 17645));
             sorted.Add("WM", new Aluno("Wanderson", 11287));
 
+            ///
+            /// O SortedList imprime os valores ordenados pela chave.
+            /// Temos uma estrutura diferente de armazenamento de chaves e valores. 
+            /// Não teremos a coleção que utiliza o "hash", em vez disso, haverá uma lista automaticamente ordenada. 
+            /// Ou seja, cada vez que inserimos um valor, ele será ordenado automaticamente.
+
             Console.WriteLine();
             foreach (var aluno in sorted)
             {
