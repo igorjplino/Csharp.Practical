@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parte2", "Parte2", "{2498FC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortedList", "Curso.Collections\Parte2\SortedList\SortedList.csproj", "{DA7E8CA7-C091-441C-B24B-A24C39C03E58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortedDictionary", "Curso.Collections\Parte2\SortedDictionary\SortedDictionary.csproj", "{2C321E5C-1276-49E2-8186-4362C8F14BDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{DA7E8CA7-C091-441C-B24B-A24C39C03E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA7E8CA7-C091-441C-B24B-A24C39C03E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA7E8CA7-C091-441C-B24B-A24C39C03E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C321E5C-1276-49E2-8186-4362C8F14BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C321E5C-1276-49E2-8186-4362C8F14BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C321E5C-1276-49E2-8186-4362C8F14BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C321E5C-1276-49E2-8186-4362C8F14BDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +116,7 @@ Global
 		{084F302D-A58B-40E4-9B48-E0A80EF06DAB} = {100D9D64-2B32-4417-A687-5E55392878C1}
 		{2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4} = {4E6601EE-117A-41A6-939B-4C3B7289A283}
 		{DA7E8CA7-C091-441C-B24B-A24C39C03E58} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
+		{2C321E5C-1276-49E2-8186-4362C8F14BDB} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74A5267-7803-41E7-BF55-8A3E83B326E9}
