@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortedSet", "Curso.Collecti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraysMultidimensionais", "Curso.Collections\Parte2\ArraysMultidimensionais\ArraysMultidimensionais.csproj", "{630840DF-CF47-4B4A-91A8-2F46F024CC0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggedArrays", "Curso.Collections\Parte2\JaggedArrays\JaggedArrays.csproj", "{2E6626CA-8525-4643-AD9C-EE56FB26D743}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{630840DF-CF47-4B4A-91A8-2F46F024CC0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{630840DF-CF47-4B4A-91A8-2F46F024CC0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{630840DF-CF47-4B4A-91A8-2F46F024CC0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6626CA-8525-4643-AD9C-EE56FB26D743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6626CA-8525-4643-AD9C-EE56FB26D743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6626CA-8525-4643-AD9C-EE56FB26D743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6626CA-8525-4643-AD9C-EE56FB26D743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +137,7 @@ Global
 		{2C321E5C-1276-49E2-8186-4362C8F14BDB} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 		{2B5BEA0C-6E08-424C-B129-9E3732C85307} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 		{630840DF-CF47-4B4A-91A8-2F46F024CC0E} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
+		{2E6626CA-8525-4643-AD9C-EE56FB26D743} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74A5267-7803-41E7-BF55-8A3E83B326E9}
