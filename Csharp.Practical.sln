@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultandoCollections", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutrosOperadoresLINQ", "Curso.Collections\Parte2\OutrosOperadoresLINQ\OutrosOperadoresLINQ.csproj", "{D121707B-40F1-482F-AAD6-84B7ACF5C0B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperadoresDeConjuntos", "Curso.Collections\Parte2\OperadoresDeConjuntos\OperadoresDeConjuntos.csproj", "{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{D121707B-40F1-482F-AAD6-84B7ACF5C0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D121707B-40F1-482F-AAD6-84B7ACF5C0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D121707B-40F1-482F-AAD6-84B7ACF5C0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,6 +158,7 @@ Global
 		{2E6626CA-8525-4643-AD9C-EE56FB26D743} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 		{2D6C140B-AAD0-4D90-8867-B216D2CD68ED} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 		{D121707B-40F1-482F-AAD6-84B7ACF5C0B7} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
+		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74A5267-7803-41E7-BF55-8A3E83B326E9}
