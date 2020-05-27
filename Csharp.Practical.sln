@@ -53,6 +53,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutrosOperadoresLINQ", "Cur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperadoresDeConjuntos", "Curso.Collections\Parte2\OperadoresDeConjuntos\OperadoresDeConjuntos.csproj", "{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso.Refatoracao", "Curso.Refatoracao", "{49BD6DDD-DFFC-4979-8F0C-377F9896D4CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parte1", "Parte1", "{6ECEE78E-D008-418B-A880-6025BFCE4270}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "refatoracao", "Curso.Refatoracao\Parte1\refatoracao\refatoracao.csproj", "{75845F2B-4CCB-4297-92B2-A001CFA9B72F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "caelum-stella-csharp", "Curso.Refatoracao\Parte1\caelum-stella-csharp\caelum-stella-csharp.csproj", "{DBD5CB98-A47F-4035-8351-971105CE8C5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "caelum-stella-csharp-netcore-test", "Curso.Refatoracao\Parte1\caelum-stella-csharp-test\caelum-stella-csharp-netcore-test.csproj", "{1EAABE10-CEE1-4348-8758-10FBDE3EDE79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +145,18 @@ Global
 		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75845F2B-4CCB-4297-92B2-A001CFA9B72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75845F2B-4CCB-4297-92B2-A001CFA9B72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75845F2B-4CCB-4297-92B2-A001CFA9B72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75845F2B-4CCB-4297-92B2-A001CFA9B72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD5CB98-A47F-4035-8351-971105CE8C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD5CB98-A47F-4035-8351-971105CE8C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD5CB98-A47F-4035-8351-971105CE8C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD5CB98-A47F-4035-8351-971105CE8C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EAABE10-CEE1-4348-8758-10FBDE3EDE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EAABE10-CEE1-4348-8758-10FBDE3EDE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EAABE10-CEE1-4348-8758-10FBDE3EDE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EAABE10-CEE1-4348-8758-10FBDE3EDE79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +181,10 @@ Global
 		{2D6C140B-AAD0-4D90-8867-B216D2CD68ED} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 		{D121707B-40F1-482F-AAD6-84B7ACF5C0B7} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
 		{50EE75EE-2D8B-4403-89B7-9AF497FDA69D} = {2498FCA6-CA1C-4CF2-AA89-AB2C4C2CBBE4}
+		{6ECEE78E-D008-418B-A880-6025BFCE4270} = {49BD6DDD-DFFC-4979-8F0C-377F9896D4CC}
+		{75845F2B-4CCB-4297-92B2-A001CFA9B72F} = {6ECEE78E-D008-418B-A880-6025BFCE4270}
+		{DBD5CB98-A47F-4035-8351-971105CE8C5E} = {6ECEE78E-D008-418B-A880-6025BFCE4270}
+		{1EAABE10-CEE1-4348-8758-10FBDE3EDE79} = {6ECEE78E-D008-418B-A880-6025BFCE4270}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74A5267-7803-41E7-BF55-8A3E83B326E9}
