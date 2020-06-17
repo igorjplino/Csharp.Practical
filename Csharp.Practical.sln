@@ -73,6 +73,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parte3", "Parte3", "{2C3524
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring3", "Curso.Refatoracao\Parte3\Refatorando\Refactoring3.csproj", "{89C85F53-A631-48BF-A047-FC42D36BF9B5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso.Novidades.Csharp6", "Curso.Novidades.Csharp6", "{D1CBDDDC-CBB5-4BC1-B271-A3EE5E7E1F98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-atualizacoes", "Curso.Novidades.Csharp6\csharp-atualizacoes.csproj", "{75C8069F-B1E5-41CD-AA4A-7BBC1CCA6C5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +183,10 @@ Global
 		{89C85F53-A631-48BF-A047-FC42D36BF9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89C85F53-A631-48BF-A047-FC42D36BF9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89C85F53-A631-48BF-A047-FC42D36BF9B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75C8069F-B1E5-41CD-AA4A-7BBC1CCA6C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C8069F-B1E5-41CD-AA4A-7BBC1CCA6C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75C8069F-B1E5-41CD-AA4A-7BBC1CCA6C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75C8069F-B1E5-41CD-AA4A-7BBC1CCA6C5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -212,6 +220,7 @@ Global
 		{D129CC3F-E9C1-4345-91EC-F4C2CEC1392F} = {24C63A48-AF72-42DB-9D8B-6AE56E108A4B}
 		{2C3524BB-E775-48F7-94DD-54D775A221B3} = {49BD6DDD-DFFC-4979-8F0C-377F9896D4CC}
 		{89C85F53-A631-48BF-A047-FC42D36BF9B5} = {2C3524BB-E775-48F7-94DD-54D775A221B3}
+		{75C8069F-B1E5-41CD-AA4A-7BBC1CCA6C5E} = {D1CBDDDC-CBB5-4BC1-B271-A3EE5E7E1F98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74A5267-7803-41E7-BF55-8A3E83B326E9}
