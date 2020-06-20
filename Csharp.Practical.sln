@@ -90,6 +90,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.4", "Curso.pt4\Byt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBank.Modelos", "Curso.pt5-pt8\ByteBank.Modelos\ByteBank.Modelos.csproj", "{3D96B58C-45B0-4251-A568-48A84E1501AE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso.Reflection", "Curso.Reflection", "{78ED6996-880C-4A8B-B79C-5734035059B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.Portal", "Curso.Reflection\ByteBank.Portal\ByteBank.Portal.csproj", "{52441389-9E15-414B-BC8F-B829417182E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -204,6 +208,10 @@ Global
 		{3D96B58C-45B0-4251-A568-48A84E1501AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D96B58C-45B0-4251-A568-48A84E1501AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D96B58C-45B0-4251-A568-48A84E1501AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52441389-9E15-414B-BC8F-B829417182E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52441389-9E15-414B-BC8F-B829417182E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52441389-9E15-414B-BC8F-B829417182E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52441389-9E15-414B-BC8F-B829417182E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -241,6 +249,7 @@ Global
 		{6E1ACBB2-80A9-43C0-AA8E-8D36BA433685} = {3C0ED5DC-F0F0-4856-A1D4-37F59A666890}
 		{D5B03F93-CDC4-4309-AE8E-FFD218108A1A} = {621C5AE9-749A-4204-9914-78B9A108DAA9}
 		{3D96B58C-45B0-4251-A568-48A84E1501AE} = {049CEE84-8DE4-4D9A-B74A-03EF0DD5AFA2}
+		{52441389-9E15-414B-BC8F-B829417182E4} = {78ED6996-880C-4A8B-B79C-5734035059B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74A5267-7803-41E7-BF55-8A3E83B326E9}
