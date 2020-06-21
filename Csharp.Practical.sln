@@ -94,6 +94,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso.Reflection", "Curso.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.Portal", "Curso.Reflection\ByteBank.Portal\ByteBank.Portal.csproj", "{52441389-9E15-414B-BC8F-B829417182E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.Service", "ByteBank.Service\ByteBank.Service.csproj", "{4DC2D830-E930-4BD2-AED4-313FF117E9B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -212,6 +214,10 @@ Global
 		{52441389-9E15-414B-BC8F-B829417182E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52441389-9E15-414B-BC8F-B829417182E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52441389-9E15-414B-BC8F-B829417182E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC2D830-E930-4BD2-AED4-313FF117E9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC2D830-E930-4BD2-AED4-313FF117E9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC2D830-E930-4BD2-AED4-313FF117E9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC2D830-E930-4BD2-AED4-313FF117E9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,6 +256,7 @@ Global
 		{D5B03F93-CDC4-4309-AE8E-FFD218108A1A} = {621C5AE9-749A-4204-9914-78B9A108DAA9}
 		{3D96B58C-45B0-4251-A568-48A84E1501AE} = {049CEE84-8DE4-4D9A-B74A-03EF0DD5AFA2}
 		{52441389-9E15-414B-BC8F-B829417182E4} = {78ED6996-880C-4A8B-B79C-5734035059B1}
+		{4DC2D830-E930-4BD2-AED4-313FF117E9B8} = {78ED6996-880C-4A8B-B79C-5734035059B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E74A5267-7803-41E7-BF55-8A3E83B326E9}
