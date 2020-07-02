@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Portal.Infraestrutura.Binding;
 using ByteBank.Portal.Infraestrutura.Filtros;
+using ByteBank.Portal.Infraestrutura.IoC;
 
 namespace ByteBank.Portal.Infraestrutura
 {
@@ -13,6 +14,12 @@ namespace ByteBank.Portal.Infraestrutura
     {
         private readonly ActionBinder _actionBinder = new ActionBinder();
         private readonly FilterResolver _filterResolver = new FilterResolver();
+        private readonly ControllerResolver _controllerResolver;
+
+        public ManipuladorRequisicaoController(IContainer container)
+        {
+            _controllerResolver = new ControllerResolver(container);
+        }
 
         public void Manipular(HttpListenerResponse resposta, string path)
         {
@@ -22,8 +29,10 @@ namespace ByteBank.Portal.Infraestrutura
 
             var controllerNomeCompleto = $"ByteBank.Portal.Controller.{controllerNome}Controller";
 
-            var controllerWrapper = Activator.CreateInstance("ByteBank.Portal", controllerNomeCompleto, new object[0]);
-            var controller = controllerWrapper.Unwrap();
+            //var controllerWrapper = Activator.CreateInstance("ByteBank.Portal", controllerNomeCompleto, new object[0]);
+            //var controller = controllerWrapper.Unwrap();
+
+            var controller = _controllerResolver.ObterController(controllerNomeCompleto);
 
             //var methodInfo = controller.GetType().GetMethod(actionNome);
             var actionBindInfo = _actionBinder.ObterMethodInfo(controller, path);

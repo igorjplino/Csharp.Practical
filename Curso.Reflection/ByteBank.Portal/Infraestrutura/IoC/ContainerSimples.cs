@@ -20,9 +20,47 @@ namespace ByteBank.Portal.Infraestrutura.IoC
             _mapaDeTipos.Add(tipoOrigem, tipoDestino);
         }
 
+        public void Registrar<TOrigem, TDestino>() where TDestino : TOrigem
+        {
+            if (_mapaDeTipos.ContainsKey(typeof(TOrigem)))
+                throw new InvalidOperationException("Tipo já mapeado!");
+
+            _mapaDeTipos.Add(typeof(TOrigem), typeof(TDestino));
+        }
+
         public object Recuperar(Type tipoOrigem)
         {
-            throw new NotImplementedException();
+            var tipoOrigemFoiMapeado = _mapaDeTipos.ContainsKey(tipoOrigem);
+
+            if (tipoOrigemFoiMapeado)
+            {
+                var tipoDestino = _mapaDeTipos[tipoOrigem];
+                return Recuperar(tipoDestino);
+            }
+
+            var construtores = tipoOrigem.GetConstructors();
+            var construtorSemParametros = construtores.FirstOrDefault(construtor => construtor.GetParameters().Any() == false);
+
+            if (construtorSemParametros != null)
+            {
+                var instanciaDeConstrutorSemParametros = construtorSemParametros.Invoke(new object[0]);
+                return instanciaDeConstrutorSemParametros;
+            }
+
+            var construtorQueVamosUsar = construtores[0];
+            var parametrosDoConstrutor = construtorQueVamosUsar.GetParameters();
+            var valoresDeParametros = new object[parametrosDoConstrutor.Count()];
+
+            for (int i = 0; i < parametrosDoConstrutor.Count(); i++)
+            {
+                var parametro = parametrosDoConstrutor[i];
+                var tipoParametro = parametro.ParameterType;
+
+                valoresDeParametros[i] = Recuperar(tipoParametro);
+            }
+
+            var instancia = construtorQueVamosUsar.Invoke(valoresDeParametros);
+            return instancia;
         }
 
         private void VerificarHierarquiaOuLancarExcecao(Type tipoOrigem, Type tipoDestino)
