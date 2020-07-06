@@ -60,21 +60,23 @@ namespace ByteBank.Agencias
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
 
-            txtNome.TextChanged += ValidacaoCampoNulo;
-            txtDescricao.TextChanged += ValidacaoCampoNulo;
-            txtEndereco.TextChanged += ValidacaoCampoNulo;
-            txtNumero.TextChanged += ValidacaoCampoNulo;
-            txtTelefone.TextChanged += ValidacaoCampoNulo;
+            txtNumero.Validacao += ValidarCampoNulo;
+            txtNumero.Validacao += ValidarSomenteDigito;
+
+            txtNome.Validacao += ValidarCampoNulo;
+            txtDescricao.Validacao += ValidarCampoNulo;
+            txtEndereco.Validacao += ValidarCampoNulo;
+            txtTelefone.Validacao += ValidarCampoNulo;
         }
 
-        private void ValidacaoCampoNulo(object o, EventArgs e)
+        private void ValidarSomenteDigito(object sender, ValidacaoEventArgs e)
         {
-            var txt = o as TextBox;
-            var textoEstaVazio = string.IsNullOrEmpty(txt.Text);
+            e.EhValido = e.Texto.All(char.IsDigit);
+        }
 
-            txt.Background = textoEstaVazio
-                ? new SolidColorBrush(Colors.OrangeRed)
-                : new SolidColorBrush(Colors.White);
+        private void ValidarCampoNulo(object sender, ValidacaoEventArgs e)
+        {
+            e.EhValido = !string.IsNullOrEmpty(e.Texto);
         }
 
         private void Fechar(object sender, EventArgs e) => Close();
