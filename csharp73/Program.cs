@@ -1,5 +1,7 @@
 ﻿using System;
 using csharp73.Aula1;
+using csharp73.Aula3;
+using csharp73.Aula4;
 
 namespace csharp73
 {
@@ -7,7 +9,7 @@ namespace csharp73
     {
         static void Main(string[] args)
         {
-            TesteTuples.MaisAlgunsCasos();
+            BackfieldAttribute.Testa();
 
             Console.WriteLine("Final da execução!");
         }
